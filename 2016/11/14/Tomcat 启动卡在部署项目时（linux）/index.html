@@ -3,26 +3,32 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | 沟通世界，实现梦想 | 一个有理想的开发者</title>
+  <title>Tomcat 启动卡在部署项目时（linux） | 沟通世界，实现梦想 | 一个有理想的开发者</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="theme-color" content="#3F51B5">
   
   
   <meta name="keywords" content="">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="#Tomcat 启动卡在部署项目时（linux）
+找到1```securerandom.source=file:/dev/./urandom
+
+这时候根据修改内容就可以查到因为此原因不仅可以造成tomcat卡住，也会造成weblogic启动缓慢，linux或者部分unix系统提供随机数设备是/dev/random和/dev/urandom，两个有区别，urandom安全性没有random高，但ra">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://rxxy.github.io/2016/11/14/hello-world/index.html">
+<meta property="og:title" content="Tomcat 启动卡在部署项目时（linux）">
+<meta property="og:url" content="https://rxxy.github.io/2016/11/14/Tomcat 启动卡在部署项目时（linux）/index.html">
 <meta property="og:site_name" content="沟通世界，实现梦想">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-11-14T12:26:58.817Z">
+<meta property="og:description" content="#Tomcat 启动卡在部署项目时（linux）
+找到1```securerandom.source=file:/dev/./urandom
+
+这时候根据修改内容就可以查到因为此原因不仅可以造成tomcat卡住，也会造成weblogic启动缓慢，linux或者部分unix系统提供随机数设备是/dev/random和/dev/urandom，两个有区别，urandom安全性没有random高，但ra">
+<meta property="og:updated_time" content="2016-12-26T15:38:57.338Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="Tomcat 启动卡在部署项目时（linux）">
+<meta name="twitter:description" content="#Tomcat 启动卡在部署项目时（linux）
+找到1```securerandom.source=file:/dev/./urandom
+
+这时候根据修改内容就可以查到因为此原因不仅可以造成tomcat卡住，也会造成weblogic启动缓慢，linux或者部分unix系统提供随机数设备是/dev/random和/dev/urandom，两个有区别，urandom安全性没有random高，但ra">
   
     <link rel="alternative" href="/atom.xml" title="沟通世界，实现梦想" type="application/atom+xml">
   
@@ -99,7 +105,7 @@ Quick">
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Hello World</div>
+        <div class="flex-col header-title ellipsis">Tomcat 启动卡在部署项目时（linux）</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -120,7 +126,7 @@ Quick">
 </header>
 <header class="content-header">
   <div class="container">
-    <h1 class="author">Hello World</h1>
+    <h1 class="author">Tomcat 启动卡在部署项目时（linux）</h1>
     <h5 class="subtitle">
         
             <time datetime="2016-11-14T12:26:58.817Z" itemprop="datePublished" class="page-time">
@@ -134,7 +140,7 @@ Quick">
 </header>
 
     <div class="container body-wrap">
-      <article id="post-hello-world" 
+      <article id="post-Tomcat 启动卡在部署项目时（linux）" 
   class="article article-type-post" itemprop="blogPost">
     <div class="post-meta flex-row">
         
@@ -183,7 +189,7 @@ Quick">
 
             
             <nav class="post-toc-wrap" id="post-toc">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Quick-Start"><span class="post-toc-number">1.</span> <span class="post-toc-text">Quick Start</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Create-a-new-post"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Create a new post</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Run-server"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Run server</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Generate-static-files"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Generate static files</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Deploy-to-remote-sites"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+            
             </nav>
             
         </aside>
@@ -191,15 +197,24 @@ Quick">
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent">
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+            <p>#Tomcat 启动卡在部署项目时（linux）</p>
+<p>找到<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">```securerandom.source=file:/dev/./urandom</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>这时候根据修改内容就可以查到因为此原因不仅可以造成tomcat卡住，也会造成weblogic启动缓慢，<br>linux或者部分unix系统提供随机数设备是<code>/dev/random</code>和<code>/dev/urandom</code>，两个有区别，<br><code>urandom</code>安全性没有<code>random</code>高，但random需要时间间隔生成随机数。jdk默认调用random。<br>再后来，终于在weblogic的官方文档中 Monitoring and Troubleshooting 找到了 Avoiding JVM Delays Caused ByRandom Number Generation 这样一个标题。摘录如下：</p>
+<p>The library used for randomnumber generation in Sun’s JVM relies on /dev/random by default for UNIXplatforms. This can potentially block the Oracle WebLogic CommunicationServices process because on some operating systems /dev/random waits for acertain amount of “noise” to be generated on the host machine beforereturning a result. Although /dev/random is more secure, Oracle recommendsusing /dev/urandom if the default JVM configuration delays Oracle WebLogicCommunication Services startup.</p>
+<p>To determine if your operatingsystem exhibits this behavior, try displaying a portion of the file from ashell prompt:</p>
+<p>head -n 1 /dev/random<br>Open the<code>$JAVA_HOME/jre/lib/security/java.security</code> file in a text editor.</p>
+<p>Change the line:</p>
+<p>securerandom.source=file:/dev/random<br>to read:</p>
+<p>securerandom.source=file:/dev/urandom<br>Save your change and exit thetext editor.<br>其中说到：可通过 head -n 1 /devrandom 查看是否你的系统会出现伪随机数提供等待。OK就这个，试了一下，果然，在服务器第一次启动后，这个可以快速提供一个值，但当再次调用时发生等待。</p>
+</blockquote>
+<p>解决办法：</p>
+<p>永久：oracle 说修改$JAVA_HOME/jre/lib/security/java.security文件，替换<code>securerandom.source=file:/dev/random</code>为<code>securerandom.source=file:/dev/urandom</code>。对所有使用JVM的应用生效。（这个永久的方法，这里面有个问题，就是设置时候实际应该设置为<code>securerandom.source=file:/dev/./urandom</code>，否则不生效）</p>
+<p>DOMAIN临时：修改startWeblogic.sh文件，JAVA_OPTIONS=”${SAVE_JAVA_OPTIONS}-Djava.security.egd=file:/dev/./urandom”</p>
+<p>后继的SecureRandom 测试学习</p>
+<p>编写JAVA类如下，运行测试，第一次正常，第二次等待，重启服务器后第一次又正常。启动加入参数<code>-Djava.security.egd=file:/dev/./urandom</code> 正常</p>
+<p>来自<a href="[http://blog.csdn.net/njchenyi/article/details/46641141](http://blog.csdn.net/njchenyi/article/details/46641141)">[http://blog.csdn.net/njchenyi/article/details/46641141](http://blog.csdn.net/njchenyi/article/details/46641141)</a></p>
+<p>原文地址：<a href="http://blog.csdn.net/njchenyi/article/details/46641141" target="_blank" rel="external">http://blog.csdn.net/njchenyi/article/details/46641141</a></p>
 
 
             
@@ -211,7 +226,7 @@ Quick">
             <blockquote>
                 <p>
                 本文地址：
-                <a href="https://rxxy.github.io/2016/11/14/hello-world/" target="_blank" rel="external">https://rxxy.github.io/2016/11/14/hello-world/</a>
+                <a href="https://rxxy.github.io/2016/11/14/Tomcat 启动卡在部署项目时（linux）/" target="_blank" rel="external">https://rxxy.github.io/2016/11/14/Tomcat 启动卡在部署项目时（linux）/</a>
                 </p>
                 <footer><cite><a href="https://rxxy.github.io">@沟通世界，实现梦想</a></cite></footer>
             </blockquote>
@@ -258,10 +273,10 @@ Quick">
 
 <script>
 var BLOG_SHARE = {
-    title: "Hello World",
+    title: "Tomcat 启动卡在部署项目时（linux）",
     pic: "/img/logo.jpg",
     summary: document.getElementsByName('summary')[0].content,
-    url: "https://rxxy.github.io/2016/11/14/hello-world/index.html"
+    url: "https://rxxy.github.io/2016/11/14/Tomcat 启动卡在部署项目时（linux）/index.html"
 };
 </script>
 <div class="global-share" id="global-share">

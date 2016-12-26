@@ -59,13 +59,6 @@
           </li>
       
           <li class="waves-block waves-effect">
-            <a href="/tags"  >
-              <i class="icon icon-lg icon-tags"></i>
-              Tags
-            </a>
-          </li>
-      
-          <li class="waves-block waves-effect">
             <a href="https://github.com/rxxy" target="_blank" >
               <i class="icon icon-lg icon-github"></i>
               Github
@@ -133,14 +126,14 @@
       <ul class="post-list">
   
     <li class="post-list-item">
-        <article id="post-hello-world"
+        <article id="post-Tomcat 启动卡在部署项目时（linux）"
   class="article article-type-post" itemprop="blogPost">
      
 
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/11/14/hello-world/">Hello World</a>
+      <a class="post-title-link" href="/2016/11/14/Tomcat 启动卡在部署项目时（linux）/">Tomcat 启动卡在部署项目时（linux）</a>
     </h3>
   
 
@@ -159,10 +152,13 @@
     <div class="post-content" id="post-content" itemprop="postContent" >
 
     
-         Welcome to  Hexo ! This is your very first post. Check  documentation  for more info. If you get any problems when using Hexo, you can find the answer in  troubleshooting  or you can ask me on  GitHu
+         #Tomcat 启动卡在部署项目时（linux） 
+ 找到      1      ```securerandom.source=file:/dev/./urandom       
+ 
+ 这时候根据修改内容就可以查到因为此原因不仅可以造成tomcat卡住，也会造成weblogic启动缓慢， linux或者部分unix系统提供随机数设备是 /dev/random 和 /dev/urandom ，
     
     
-        <a href="/2016/11/14/hello-world/" class="post-more waves-effect waves-button">
+        <a href="/2016/11/14/Tomcat 启动卡在部署项目时（linux）/" class="post-more waves-effect waves-button">
             阅读全文...
         </a>
     </div>
