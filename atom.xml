@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>沟通世界，实现梦想</title>
-  <subtitle>一个有理想的开发者</subtitle>
+  <title>若兮相言</title>
+  <subtitle>代码搬运工</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://rxxy.github.io/"/>
@@ -19,7 +19,7 @@
     <title>kali渗透笔记</title>
     <link href="https://rxxy.github.io/2016/12/26/kali%E6%B8%97%E9%80%8F%E7%AC%94%E8%AE%B0/"/>
     <id>https://rxxy.github.io/2016/12/26/kali渗透笔记/</id>
-    <published>2016-12-26T15:45:39.379Z</published>
+    <published>2016-12-26T15:45:39.380Z</published>
     <updated>2016-12-26T15:53:38.091Z</updated>
     
     <content type="html"><![CDATA[<p>#kali渗透笔记<br> Windows shellCode usege<br>/root生成木马hello.exe</p>
@@ -58,7 +58,7 @@
     <link href="https://rxxy.github.io/2016/11/14/Tomcat%20%E5%90%AF%E5%8A%A8%E5%8D%A1%E5%9C%A8%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE%E6%97%B6%EF%BC%88linux%EF%BC%89/"/>
     <id>https://rxxy.github.io/2016/11/14/Tomcat 启动卡在部署项目时（linux）/</id>
     <published>2016-11-14T12:26:58.817Z</published>
-    <updated>2016-12-26T15:38:57.338Z</updated>
+    <updated>2016-12-26T15:38:57.339Z</updated>
     
     <content type="html"><![CDATA[<p>#Tomcat 启动卡在部署项目时（linux）</p>
 <p>找到<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">```securerandom.source=file:/dev/./urandom</div></pre></td></tr></table></figure></p>
