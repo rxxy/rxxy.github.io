@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Tomcat 启动卡在部署项目时（linux） | 若兮相言 | 代码搬运工</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="linux,tomcat">
+    <meta name="description" content="#Tomcat 启动卡在部署项目时（linux）
+找到1```securerandom.source=file:/dev/./urandom
+
+这时候根据修改内容就可以查到因为此原因不仅可以造成tomcat卡住，也会造成weblogic启动缓慢，linux或者部分unix系统提供随机数设备是/dev/random和/dev/urandom，两个有区别，urandom安全性没有random高，但ra">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tomcat 启动卡在部署项目时（linux）">
+<meta property="og:url" content="https://rxxy.github.io/2016/11/14/cj6vkny8m00006gtwtfi7pes6/index.html">
+<meta property="og:site_name" content="若兮相言">
+<meta property="og:description" content="#Tomcat 启动卡在部署项目时（linux）
+找到1```securerandom.source=file:/dev/./urandom
+
+这时候根据修改内容就可以查到因为此原因不仅可以造成tomcat卡住，也会造成weblogic启动缓慢，linux或者部分unix系统提供随机数设备是/dev/random和/dev/urandom，两个有区别，urandom安全性没有random高，但ra">
+<meta property="og:updated_time" content="2017-08-28T01:23:51.196Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tomcat 启动卡在部署项目时（linux）">
+<meta name="twitter:description" content="#Tomcat 启动卡在部署项目时（linux）
+找到1```securerandom.source=file:/dev/./urandom
+
+这时候根据修改内容就可以查到因为此原因不仅可以造成tomcat卡住，也会造成weblogic启动缓慢，linux或者部分unix系统提供随机数设备是/dev/random和/dev/urandom，两个有区别，urandom安全性没有random高，但ra">
+    
+        <link rel="alternate" type="application/atom+xml" title="若兮相言" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Rxxy</h5>
+          <a href="mailto:891841484@qq.com" title="891841484@qq.com" class="mail">891841484@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/rxxy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Tomcat 启动卡在部署项目时（linux）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Tomcat 启动卡在部署项目时（linux）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-11-14T12:26:58.817Z" itemprop="datePublished" class="page-time">
+  2016-11-14
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-Tomcat 启动卡在部署项目时（linux）"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Tomcat 启动卡在部署项目时（linux）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-11-14 20:26:58" datetime="2016-11-14T12:26:58.817Z"  itemprop="datePublished">2016-11-14</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>#Tomcat 启动卡在部署项目时（linux）</p>
+<p>找到<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">```securerandom.source=file:/dev/./urandom</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>这时候根据修改内容就可以查到因为此原因不仅可以造成tomcat卡住，也会造成weblogic启动缓慢，<br>linux或者部分unix系统提供随机数设备是<code>/dev/random</code>和<code>/dev/urandom</code>，两个有区别，<br><code>urandom</code>安全性没有<code>random</code>高，但random需要时间间隔生成随机数。jdk默认调用random。<br>再后来，终于在weblogic的官方文档中 Monitoring and Troubleshooting 找到了 Avoiding JVM Delays Caused ByRandom Number Generation 这样一个标题。摘录如下：</p>
+<p>The library used for randomnumber generation in Sun’s JVM relies on /dev/random by default for UNIXplatforms. This can potentially block the Oracle WebLogic CommunicationServices process because on some operating systems /dev/random waits for acertain amount of “noise” to be generated on the host machine beforereturning a result. Although /dev/random is more secure, Oracle recommendsusing /dev/urandom if the default JVM configuration delays Oracle WebLogicCommunication Services startup.</p>
+<p>To determine if your operatingsystem exhibits this behavior, try displaying a portion of the file from ashell prompt:</p>
+<p>head -n 1 /dev/random<br>Open the<code>$JAVA_HOME/jre/lib/security/java.security</code> file in a text editor.</p>
+<p>Change the line:</p>
+<p>securerandom.source=file:/dev/random<br>to read:</p>
+<p>securerandom.source=file:/dev/urandom<br>Save your change and exit thetext editor.<br>其中说到：可通过 head -n 1 /devrandom 查看是否你的系统会出现伪随机数提供等待。OK就这个，试了一下，果然，在服务器第一次启动后，这个可以快速提供一个值，但当再次调用时发生等待。</p>
+</blockquote>
+<p>解决办法：</p>
+<p>永久：oracle 说修改$JAVA_HOME/jre/lib/security/java.security文件，替换<code>securerandom.source=file:/dev/random</code>为<code>securerandom.source=file:/dev/urandom</code>。对所有使用JVM的应用生效。（这个永久的方法，这里面有个问题，就是设置时候实际应该设置为<code>securerandom.source=file:/dev/./urandom</code>，否则不生效）</p>
+<p>DOMAIN临时：修改startWeblogic.sh文件，JAVA_OPTIONS=”${SAVE_JAVA_OPTIONS}-Djava.security.egd=file:/dev/./urandom”</p>
+<p>后继的SecureRandom 测试学习</p>
+<p>编写JAVA类如下，运行测试，第一次正常，第二次等待，重启服务器后第一次又正常。启动加入参数<code>-Djava.security.egd=file:/dev/./urandom</code> 正常</p>
+<p>来自<a href="[http://blog.csdn.net/njchenyi/article/details/46641141](http://blog.csdn.net/njchenyi/article/details/46641141)">[http://blog.csdn.net/njchenyi/article/details/46641141](http://blog.csdn.net/njchenyi/article/details/46641141)</a></p>
+<p>原文地址：<a href="http://blog.csdn.net/njchenyi/article/details/46641141" target="_blank" rel="external">http://blog.csdn.net/njchenyi/article/details/46641141</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2017-08-28T01:23:51.196Z" itemprop="dateUpdated">2017-08-28 09:23:51</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="https://rxxy.github.io">
+            <img src="/img/logo.jpg" alt="Rxxy">
+            Rxxy
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tomcat/">tomcat</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://rxxy.github.io/2016/11/14/cj6vkny8m00006gtwtfi7pes6/&title=《Tomcat 启动卡在部署项目时（linux）》 — 若兮相言&pic=https://rxxy.github.io/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://rxxy.github.io/2016/11/14/cj6vkny8m00006gtwtfi7pes6/&title=《Tomcat 启动卡在部署项目时（linux）》 — 若兮相言&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://rxxy.github.io/2016/11/14/cj6vkny8m00006gtwtfi7pes6/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Tomcat 启动卡在部署项目时（linux）》 — 若兮相言&url=https://rxxy.github.io/2016/11/14/cj6vkny8m00006gtwtfi7pes6/&via=https://rxxy.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://rxxy.github.io/2016/11/14/cj6vkny8m00006gtwtfi7pes6/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/12/26/cj6vkny8w00026gtw9zd8tty1/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">kali渗透笔记</h4>
+      </a>
+    </div>
+  
+
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+    <!--
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    -->
+    <script>
+        var gitment = new Gitment({
+            owner: 'rxxy',
+            repo: 'rxxy.github.io',
+            oauth: {
+                client_id: '8101c416ab354008096b',
+                client_secret: 'a3e10377769de89284662329a0d4800c4db8930a',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Rxxy &copy; 2015 - 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://rxxy.github.io/2016/11/14/cj6vkny8m00006gtwtfi7pes6/&title=《Tomcat 启动卡在部署项目时（linux）》 — 若兮相言&pic=https://rxxy.github.io/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://rxxy.github.io/2016/11/14/cj6vkny8m00006gtwtfi7pes6/&title=《Tomcat 启动卡在部署项目时（linux）》 — 若兮相言&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://rxxy.github.io/2016/11/14/cj6vkny8m00006gtwtfi7pes6/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Tomcat 启动卡在部署项目时（linux）》 — 若兮相言&url=https://rxxy.github.io/2016/11/14/cj6vkny8m00006gtwtfi7pes6/&via=https://rxxy.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://rxxy.github.io/2016/11/14/cj6vkny8m00006gtwtfi7pes6/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKElEQVR42u3a0a4aMQwFQP7/p7dSnyrdAuc4S1WSyROChc0skuXYfjzidf1ez17/+c7P939++vqXX1+/tDAwML6Wcb1cLSP57uu7JNf/hYqBgXEAIw+FySZaahLc3+wZAwMDI0jXniWIyUNJgjUGBgZGe7ycpXT59RgYGBizQ2xePmuTv/y+N5zFMTAwvpCx3hj43Ot/2t/AwMD4LxlXuWbtzDwcX6OFgYGxNyMpk7UFtVl4XS/AYWBgnMPI241tiW3WTigeNAYGxqaMYWgrG5brD+jNpxgYGFsz1ock2lu24xdFYQ4DA+MARp6Q3dVozJFRWMfAwNiUkQTKdrt58pe0BKLfwcDAOIYxG+SaNTJnbYOnwRoDA+MAxqzottKGzItoGBgYGCtfzgcv8sJc+z4GBsaZjHZELA+m+UBG2wrFwMDYm9GuFpw0KVcOvUMMBgbGVzHabmebLCbbuuEwjIGBsTUjL3u1W1+HtSU/DAyMExizNK4dy8iTvxkMAwNjP8Z6Y6AdmGhLacU/gIGBsTUj2fon0sTbhskwMDC2ZrQl/mSEYp09rKFhYGBsyrjKtRIc2xSzGMXAwMDYmjEbs5hFuby4nxyGMTAwTmN8LuHLS2w3pI8YGBgHMNqm5nqT4FGuN48AAwMDIx6kmI1ctMfmNwNhGBgYxzPaMJoPWLTIpYCLgYHxhYyVkJcE1jZkt6MbGBgYezPuqmUlpbc2mN6MwcDA+D7GL8RPN/XVGIMlAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
